@@ -310,12 +310,6 @@ export default function App() {
                 <span>Extension</span>
               </a>
 
-              <a
-                href="/privacy"
-                className="px-3 py-1.5 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-700 dark:text-zinc-300 transition-all font-medium shadow-2xs shrink-0"
-              >
-                Privacy
-              </a>
             </div>
           </div>
         </div>
