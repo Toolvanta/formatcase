@@ -9,10 +9,8 @@ import {
   Check,
   Search,
   RotateCcw,
-  ClipboardPaste,
   ExternalLink,
   Code2,
-  Sparkles,
 } from 'lucide-react';
 
 export const Popup: React.FC = () => {
@@ -47,15 +45,6 @@ export const Popup: React.FC = () => {
     }, 1500);
   };
 
-  const handlePaste = async () => {
-    try {
-      const text = await navigator.clipboard.readText();
-      if (text) setInput(text);
-    } catch {
-      // Clipboard read fallback
-    }
-  };
-
   const handleOpenLink = (url: string) => {
     if (typeof chrome !== 'undefined' && chrome.tabs) {
       chrome.tabs.create({ url });
@@ -76,7 +65,7 @@ export const Popup: React.FC = () => {
             <div className="flex items-center gap-2">
               <span className="font-bold text-sm tracking-tight text-white">FormatCase</span>
               <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
-                v1.0
+                v1.0.1
               </span>
             </div>
             <p className="text-[11px] text-slate-400 leading-tight">Instant Case Converter</p>
@@ -138,20 +127,12 @@ export const Popup: React.FC = () => {
         </div>
 
         {/* Input Bar Controls */}
-        <div className="flex items-center justify-between text-xs pt-0.5">
+        <div className="flex items-center text-xs pt-0.5">
           <div className="flex items-center gap-2 text-slate-400 font-mono text-[11px]">
             <span className="bg-slate-950 px-2 py-0.5 rounded border border-slate-800">{stats.chars} chars</span>
             <span className="bg-slate-950 px-2 py-0.5 rounded border border-slate-800">{stats.words} words</span>
             <span className="bg-slate-950 px-2 py-0.5 rounded border border-slate-800">{stats.lines} lines</span>
           </div>
-
-          <button
-            onClick={handlePaste}
-            className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white border border-slate-700 transition text-[11px] font-medium"
-          >
-            <ClipboardPaste size={12} />
-            <span>Paste Clipboard</span>
-          </button>
         </div>
 
         {/* Search & Category Filter with Breathing Room */}
@@ -186,7 +167,7 @@ export const Popup: React.FC = () => {
       </div>
 
       {/* Formats Scroll List with Breathing Room */}
-      <div className="flex-1 overflow-y-auto p-3.5 space-y-2.5 max-h-[350px]">
+      <div className="flex-1 overflow-y-auto p-3.5 space-y-2.5">
         {filteredFormatters.length === 0 ? (
           <div className="text-center py-10 text-slate-500 text-xs">
             No matching case format found.
@@ -250,42 +231,6 @@ export const Popup: React.FC = () => {
           })
         )}
       </div>
-
-      {/* Footer with Creator Profiles & Clean Attribution */}
-      <footer className="px-4 py-2.5 bg-slate-950 border-t border-slate-800/80 text-[11px] text-slate-400 flex items-center justify-between shrink-0">
-        <span className="flex items-center gap-1.5">
-          <Sparkles size={12} className="text-indigo-400" />
-          <span>Right-click web text to format</span>
-        </span>
-        <div className="flex items-center gap-2">
-          <span>By Shoaib M. Arif</span>
-          <a
-            href="https://github.com/shoaibmarif"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => {
-              e.preventDefault();
-              handleOpenLink('https://github.com/shoaibmarif');
-            }}
-            className="hover:text-indigo-400 transition-colors"
-          >
-            GitHub
-          </a>
-          <span>•</span>
-          <a
-            href="https://www.linkedin.com/in/shoaibmarif/"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => {
-              e.preventDefault();
-              handleOpenLink('https://www.linkedin.com/in/shoaibmarif/');
-            }}
-            className="hover:text-[#0a66c2] transition-colors"
-          >
-            LinkedIn
-          </a>
-        </div>
-      </footer>
     </div>
   );
 };

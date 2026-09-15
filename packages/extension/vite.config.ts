@@ -5,6 +5,11 @@ import { resolve } from 'path';
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  resolve: {
+    alias: {
+      '@formatcase/core': resolve(__dirname, '../core/src/index.ts'),
+    },
+  },
   build: {
     outDir: 'dist',
     emptyOutDir: true,

@@ -38,6 +38,25 @@ export const Header: React.FC<HeaderProps> = ({
 
         {/* Right Actions */}
         <div className="flex items-center gap-1.5 sm:gap-3">
+          {/* Chrome Extension Link */}
+          <a
+            href="https://chromewebstore.google.com/detail/FormatCase%20-%20Case%20Converter%20%26%20Text%20Utility/dfpjcekelcakndmpffpiemmpjbgpnipp"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 px-2.5 sm:px-3 py-2 rounded-xl border border-indigo-200 dark:border-indigo-800/80 bg-indigo-50/70 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 hover:border-indigo-300 dark:hover:border-indigo-700 transition-all text-xs shadow-2xs group"
+            title="Install FormatCase Chrome Extension"
+            aria-label="Install FormatCase Chrome Extension"
+          >
+            <svg className="w-4 h-4 shrink-0 transition-transform group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <circle cx="12" cy="12" r="4" />
+              <line x1="21.17" y1="8" x2="12" y2="8" />
+              <line x1="3.95" y1="6.06" x2="8.54" y2="14" />
+              <line x1="10.88" y1="21.94" x2="15.46" y2="14" />
+            </svg>
+            <span className="hidden sm:inline font-semibold">Extension</span>
+          </a>
+
           {/* Quick Search Button (Icon on mobile, Full button with label on desktop) */}
           <button
             onClick={onOpenCommandPalette}

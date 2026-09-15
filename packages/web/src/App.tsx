@@ -125,6 +125,48 @@ export default function App() {
 
       {/* Main Container with Generous Breathing Space */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 flex-1 w-full space-y-8 sm:space-y-12 md:space-y-16 overflow-hidden">
+        {/* Chrome Extension Live Announcement Banner */}
+        <div className="rounded-2xl border border-indigo-200/80 dark:border-indigo-900/60 bg-gradient-to-r from-indigo-50/70 via-white to-purple-50/70 dark:from-indigo-950/40 dark:via-zinc-900/60 dark:to-purple-950/30 p-3 sm:p-4 shadow-2xs flex flex-col sm:flex-row items-center justify-between gap-3 transition-colors">
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl bg-indigo-600/10 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0">
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <circle cx="12" cy="12" r="4" />
+                <line x1="21.17" y1="8" x2="12" y2="8" />
+                <line x1="3.95" y1="6.06" x2="8.54" y2="14" />
+                <line x1="10.88" y1="21.94" x2="15.46" y2="14" />
+              </svg>
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-zinc-100">
+                  FormatCase Chrome Extension is Live!
+                </span>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-900/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
+                  Chrome Web Store
+                </span>
+              </div>
+              <p className="text-[11px] sm:text-xs text-slate-500 dark:text-zinc-400">
+                Transform text anywhere on the web instantly with the right-click context menu.
+              </p>
+            </div>
+          </div>
+
+          <a
+            href="https://chromewebstore.google.com/detail/FormatCase%20-%20Case%20Converter%20%26%20Text%20Utility/dfpjcekelcakndmpffpiemmpjbgpnipp"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-medium transition-all shadow-xs hover:shadow-sm"
+          >
+            <span>Add to Chrome</span>
+            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+              <polyline points="15 3 21 3 21 9" />
+              <line x1="10" y1="14" x2="21" y2="3" />
+            </svg>
+          </a>
+        </div>
+
         {/* Input Workbench */}
         <InputWorkbench
           input={input}
@@ -217,8 +259,25 @@ export default function App() {
               </a>
 
               <a
+                href="https://chromewebstore.google.com/detail/FormatCase%20-%20Case%20Converter%20%26%20Text%20Utility/dfpjcekelcakndmpffpiemmpjbgpnipp"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-indigo-200 dark:border-indigo-800/80 bg-indigo-50/60 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/40 transition-all font-medium"
+                title="FormatCase on Chrome Web Store"
+              >
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <circle cx="12" cy="12" r="4" />
+                  <line x1="21.17" y1="8" x2="12" y2="8" />
+                  <line x1="3.95" y1="6.06" x2="8.54" y2="14" />
+                  <line x1="10.88" y1="21.94" x2="15.46" y2="14" />
+                </svg>
+                <span>Chrome Extension</span>
+              </a>
+
+              <a
                 href="https://formatcase.netlify.app/"
-                className="px-3 py-1.5 rounded-xl border border-indigo-200 dark:border-indigo-800/80 bg-indigo-50/60 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/40 transition-all font-medium"
+                className="px-3 py-1.5 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-700 dark:text-zinc-300 transition-all font-medium"
               >
                 formatcase.netlify.app
               </a>
