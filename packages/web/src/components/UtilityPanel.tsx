@@ -70,10 +70,12 @@ export const UtilityPanel: React.FC<UtilityPanelProps> = ({ input, onUpdateInput
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-slate-600 dark:text-zinc-400 mb-1.5">
+                <label htmlFor="prefix-input" className="block text-xs font-semibold text-slate-600 dark:text-zinc-400 mb-1.5">
                   Prefix (e.g. " or ' or `)
                 </label>
                 <input
+                  id="prefix-input"
+                  name="prefix-input"
                   type="text"
                   value={prefix}
                   onChange={(e) => setPrefix(e.target.value)}
@@ -83,10 +85,12 @@ export const UtilityPanel: React.FC<UtilityPanelProps> = ({ input, onUpdateInput
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-600 dark:text-zinc-400 mb-1.5">
+                <label htmlFor="suffix-input" className="block text-xs font-semibold text-slate-600 dark:text-zinc-400 mb-1.5">
                   Suffix (e.g. ", or ',)
                 </label>
                 <input
+                  id="suffix-input"
+                  name="suffix-input"
                   type="text"
                   value={suffix}
                   onChange={(e) => setSuffix(e.target.value)}

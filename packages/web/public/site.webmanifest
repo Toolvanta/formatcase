@@ -1,0 +1,17 @@
+{
+  "name": "FormatCase - Online Case Converter & Developer Utilities",
+  "short_name": "FormatCase",
+  "description": "Free, instant, 100% private online case formatter and text utility. Convert strings between camelCase, snake_case, kebab-case, PascalCase, Title Case, and 25+ formats.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#090d16",
+  "theme_color": "#4f46e5",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

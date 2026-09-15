@@ -6,6 +6,7 @@ import { UtilityPanel } from './components/UtilityPanel';
 import { CommandPalette } from './components/CommandPalette';
 import { SeoContent } from './components/SeoContent';
 import { Toast, ToastMessage } from './components/Toast';
+import { NotFound } from './components/NotFound';
 import { useCaseConverter } from './hooks/useCaseConverter';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import { useTheme } from './hooks/useTheme';
@@ -113,6 +114,30 @@ export default function App() {
     addToast(`Loaded ${preset.label} sample`, 'info');
   };
 
+  const pathname = typeof window !== 'undefined' ? window.location.pathname : '/';
+  const isKnownRoute =
+    pathname === '/' ||
+    pathname === '' ||
+    pathname === '/privacy' ||
+    pathname === '/privacy/' ||
+    pathname === '/privacy.html';
+
+  if (!isKnownRoute) {
+    return (
+      <div className="min-h-screen bg-slate-50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-100 flex flex-col font-sans transition-colors duration-200 selection:bg-indigo-500 selection:text-white">
+        <Header
+          theme={theme}
+          isDark={isDark}
+          onThemeToggle={toggleTheme}
+          onOpenCommandPalette={() => setIsCommandPaletteOpen(true)}
+        />
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
+          <NotFound />
+        </main>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-100 flex flex-col font-sans transition-colors duration-200 selection:bg-indigo-500 selection:text-white">
       {/* Navbar Header */}
@@ -125,6 +150,16 @@ export default function App() {
 
       {/* Main Container with Generous Breathing Space */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 flex-1 w-full space-y-8 sm:space-y-12 md:space-y-16 overflow-hidden">
+        {/* Primary Semantic H1 & Value Proposition */}
+        <section className="text-center md:text-left space-y-2 pt-1">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-zinc-50 leading-tight">
+            Online Case Converter &amp; Developer Text Utilities
+          </h1>
+          <p className="text-xs sm:text-sm md:text-base text-slate-600 dark:text-zinc-400 max-w-3xl leading-relaxed">
+            Instantly convert strings between camelCase, snake_case, PascalCase, kebab-case, and 25+ formats in real time. 100% private, client-side, and running entirely inside your web browser.
+          </p>
+        </section>
+
         {/* Chrome Extension Live Announcement Banner */}
         <div className="rounded-2xl border border-indigo-200/80 dark:border-indigo-900/60 bg-gradient-to-r from-indigo-50/70 via-white to-purple-50/70 dark:from-indigo-950/40 dark:via-zinc-900/60 dark:to-purple-950/30 p-3 sm:p-4 shadow-2xs flex flex-col sm:flex-row items-center justify-between gap-3 transition-colors">
           <div className="flex items-center gap-3">
@@ -209,34 +244,34 @@ export default function App() {
       <Toast toasts={toasts} onDismiss={dismissToast} />
 
       {/* Footer with Breathing Space */}
-      <footer className="border-t border-slate-200/90 dark:border-zinc-800/90 py-12 sm:py-16 mt-20 sm:mt-28 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-sm transition-colors">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="flex flex-col items-center md:items-start text-center md:text-left gap-2">
+      <footer className="border-t border-slate-200/90 dark:border-zinc-800/90 py-10 sm:py-16 mt-20 sm:mt-28 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-sm transition-colors overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8">
+          <div className="flex flex-col items-center md:items-start text-center md:text-left gap-2 w-full md:w-auto">
             <a
               href="https://formatcase.netlify.app/"
               className="flex items-center gap-2.5 font-bold text-base text-slate-800 dark:text-zinc-100 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
             >
-              <div className="w-6 h-6 rounded-lg bg-gradient-to-tr from-indigo-600 to-violet-600 text-white flex items-center justify-center text-xs shadow-xs">
+              <div className="w-6 h-6 rounded-lg bg-gradient-to-tr from-indigo-600 to-violet-600 text-white flex items-center justify-center text-xs shadow-xs shrink-0">
                 aA
               </div>
               <span>FormatCase</span>
             </a>
             <p className="text-xs text-slate-500 dark:text-zinc-400 max-w-sm">
-              Free, instant, 100% private in-browser case formatter & text utility. Zero data leaves your device.
+              Free, instant, 100% private in-browser case formatter &amp; text utility. Zero data leaves your device.
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 text-xs text-slate-600 dark:text-zinc-400">
-            <span className="font-medium text-slate-700 dark:text-zinc-300">
+          <div className="flex flex-col items-center md:items-end gap-3 sm:gap-4 text-xs text-slate-600 dark:text-zinc-400 w-full md:w-auto">
+            <span className="font-medium text-slate-700 dark:text-zinc-300 text-center">
               Created by <span className="font-semibold text-slate-900 dark:text-zinc-100">Shoaib M. Arif</span>
             </span>
 
-            <div className="flex items-center gap-2.5">
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 max-w-full">
               <a
                 href="https://github.com/shoaibmarif"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-700 dark:text-zinc-300 hover:text-slate-900 dark:hover:text-white transition-all shadow-2xs"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-700 dark:text-zinc-300 hover:text-slate-900 dark:hover:text-white transition-all shadow-2xs shrink-0"
                 title="Shoaib M. Arif on GitHub"
               >
                 <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
@@ -249,7 +284,7 @@ export default function App() {
                 href="https://www.linkedin.com/in/shoaibmarif/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-700 dark:text-zinc-300 hover:text-[#0a66c2] dark:hover:text-[#0a66c2] transition-all shadow-2xs"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-700 dark:text-zinc-300 hover:text-[#0a66c2] dark:hover:text-[#0a66c2] transition-all shadow-2xs shrink-0"
                 title="Shoaib M. Arif on LinkedIn"
               >
                 <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
@@ -262,29 +297,22 @@ export default function App() {
                 href="https://chromewebstore.google.com/detail/FormatCase%20-%20Case%20Converter%20%26%20Text%20Utility/dfpjcekelcakndmpffpiemmpjbgpnipp"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-indigo-200 dark:border-indigo-800/80 bg-indigo-50/60 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/40 transition-all font-medium"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-indigo-200 dark:border-indigo-800/80 bg-indigo-50/60 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/40 transition-all font-medium shadow-2xs shrink-0"
                 title="FormatCase on Chrome Web Store"
               >
-                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="10" />
                   <circle cx="12" cy="12" r="4" />
                   <line x1="21.17" y1="8" x2="12" y2="8" />
                   <line x1="3.95" y1="6.06" x2="8.54" y2="14" />
                   <line x1="10.88" y1="21.94" x2="15.46" y2="14" />
                 </svg>
-                <span>Chrome Extension</span>
-              </a>
-
-              <a
-                href="https://formatcase.netlify.app/"
-                className="px-3 py-1.5 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-700 dark:text-zinc-300 transition-all font-medium"
-              >
-                formatcase.netlify.app
+                <span>Extension</span>
               </a>
 
               <a
                 href="/privacy"
-                className="px-3 py-1.5 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-700 dark:text-zinc-300 transition-all font-medium"
+                className="px-3 py-1.5 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-700 dark:text-zinc-300 transition-all font-medium shadow-2xs shrink-0"
               >
                 Privacy
               </a>

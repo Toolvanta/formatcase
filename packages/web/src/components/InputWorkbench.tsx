@@ -91,6 +91,9 @@ export const InputWorkbench: React.FC<InputWorkbenchProps> = ({
       {/* Main Textarea with generous breathing space */}
       <div className="relative">
         <textarea
+          id="text-input-workbench"
+          name="text-input"
+          aria-label="Input text to format"
           ref={textareaRef}
           value={input}
           onChange={(e) => onChangeInput(e.target.value)}

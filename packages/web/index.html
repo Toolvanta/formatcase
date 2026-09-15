@@ -21,26 +21,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
     
     <!-- Primary Meta Tags -->
-    <title>FormatCase | camelCase, snake_case, PascalCase, kebab-case Online Formatter</title>
-    <meta name="title" content="FormatCase | camelCase, snake_case, PascalCase, kebab-case Online Formatter" />
-    <meta name="description" content="Free, instant, 100% private online case formatter and text utility. Convert strings between camelCase, snake_case, kebab-case, PascalCase, Title Case, and 18+ formats." />
+    <title>FormatCase — Online Case Converter &amp; Developer Text Utilities</title>
+    <meta name="description" content="Free, instant, 100% private in-browser case formatter. Convert strings between camelCase, snake_case, kebab-case, PascalCase, Title Case, and 25+ formats with zero latency." />
     <meta name="keywords" content="formatcase, camelcase converter, snake case online, string case changer, kebab case generator, pascalcase converter, text case tool, screaming snake case, developer utilities" />
-    <meta name="author" content="FormatCase" />
+    <meta name="author" content="Shoaib M. Arif" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://formatcase.netlify.app/" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Theme Colors -->
+    <meta name="theme-color" content="#4f46e5" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://formatcase.netlify.app/" />
-    <meta property="og:title" content="FormatCase - Multi-Format Case Formatter" />
-    <meta property="og:description" content="Zero-latency online text and code case formatter running 100% client-side in your browser. 18+ formats supported." />
-    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:site_name" content="FormatCase" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="FormatCase — Online Case Converter &amp; Developer Text Utilities" />
+    <meta property="og:description" content="Free, instant, 100% private in-browser case formatter. Convert strings between camelCase, snake_case, kebab-case, PascalCase, Title Case, and 25+ formats with zero latency." />
+    <meta property="og:image" content="https://formatcase.netlify.app/og-image.png" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="560" />
+    <meta property="og:image:alt" content="FormatCase - Instant Case Converter and Text Utility" />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://formatcase.netlify.app/" />
-    <meta property="twitter:title" content="FormatCase - Multi-Format Case Formatter" />
-    <meta property="twitter:description" content="Instant, zero-latency in-memory string case conversion across 18+ developer & editorial formats." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://formatcase.netlify.app/" />
+    <meta name="twitter:title" content="FormatCase — Online Case Converter &amp; Developer Text Utilities" />
+    <meta name="twitter:description" content="Free, instant, 100% private in-browser case formatter. Convert strings between camelCase, snake_case, kebab-case, PascalCase, Title Case, and 25+ formats with zero latency." />
+    <meta name="twitter:image" content="https://formatcase.netlify.app/og-image.png" />
+    <meta name="twitter:image:alt" content="FormatCase - Instant Case Converter and Text Utility" />
 
     <!-- Schema.org JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -49,27 +60,57 @@
       "@graph": [
         {
           "@type": "WebApplication",
+          "@id": "https://formatcase.netlify.app/#webapp",
           "name": "FormatCase",
-          "url": "https://formatcase.netlify.app",
+          "url": "https://formatcase.netlify.app/",
           "applicationCategory": "DeveloperApplication",
           "operatingSystem": "All",
-          "browserRequirements": "Requires JavaScript",
+          "browserRequirements": "Requires JavaScript. Runs 100% offline in-browser.",
           "offers": {
             "@type": "Offer",
             "price": "0",
             "priceCurrency": "USD"
           },
-          "description": "Instant online case formatting tool. Convert text between camelCase, snake_case, kebab-case, PascalCase, and 18+ formats in-browser with zero latency."
+          "description": "Instant online text and code case formatter. Convert text between camelCase, snake_case, kebab-case, PascalCase, Title Case, and 25+ formats entirely client-side with zero latency."
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://formatcase.netlify.app/#website",
+          "name": "FormatCase",
+          "url": "https://formatcase.netlify.app/",
+          "inLanguage": "en-US",
+          "description": "Free, instant, 100% private in-browser case formatter and string conversion utility for developers and writers."
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://formatcase.netlify.app/#organization",
+          "name": "FormatCase",
+          "url": "https://formatcase.netlify.app/",
+          "logo": "https://formatcase.netlify.app/favicon.svg",
+          "sameAs": [
+            "https://github.com/shoaibmarif",
+            "https://www.linkedin.com/in/shoaibmarif/",
+            "https://chromewebstore.google.com/detail/FormatCase%20-%20Case%20Converter%20%26%20Text%20Utility/dfpjcekelcakndmpffpiemmpjbgpnipp"
+          ]
         },
         {
           "@type": "FAQPage",
+          "@id": "https://formatcase.netlify.app/#faq",
           "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Why are there so many different casing styles anyway?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most programming languages and computer systems don't allow spaces in variable names, database columns, or URLs. To keep multi-word names readable without spaces, different communities settled on their own conventions. Web developers went with camelCase, Python programmers chose snake_case, and URLs adopted kebab-case."
+              }
+            },
             {
               "@type": "Question",
               "name": "What is the difference between camelCase and PascalCase?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "It all comes down to the very first letter. With camelCase, you start with a lowercase letter (e.g. userProfile). With PascalCase, you capitalize from the very beginning (e.g. UserProfile)."
+                "text": "It all comes down to the very first letter. With camelCase, you start with a lowercase letter (e.g. userProfile). With PascalCase, you capitalize from the very beginning (e.g. UserProfile). If you're building a React app, you use camelCase for your functions and variables, but PascalCase for your component names."
               }
             },
             {
@@ -77,7 +118,7 @@
               "name": "Is my text private? Does anything get sent over the internet?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Zero. Nothing leaves your device. FormatCase runs 100% inside your web browser's memory without sending any data over the network."
+                "text": "Zero. Nothing leaves your device. FormatCase runs 100% inside your web browser's memory. You could disconnect your internet right now, and the tool will continue working with zero issues. We don't save your text, we don't have a backend server reading your data, and we don't track what you paste."
               }
             },
             {
@@ -85,7 +126,7 @@
               "name": "How does this tool handle tricky acronyms like XML or HTTP?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "FormatCase detects when uppercase letters belong together as an acronym, turning parseHTTPResponse into parse_http_response instead of splitting every letter."
+                "text": "Simple converters break words on every single capital letter, which turns HTTP into h_t_t_p. We built smart word-boundary detection that recognizes when uppercase letters belong together as an acronym. So parseHTTPResponse becomes parse_http_response like you would expect in clean code."
               }
             },
             {
@@ -93,7 +134,15 @@
               "name": "What does Batch Mode do?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "When you have a whole list of items (like database columns or filenames), Batch Mode formats each line independently rather than as one big sentence."
+                "text": "If you have a whole list of items (like 20 database columns, a list of filenames, or environment variables), turn Batch Mode on. It converts each line on its own rather than mashing the whole block into a single sentence."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which casing should I use for my project?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "If you are writing JavaScript/TypeScript, use camelCase for variables and PascalCase for components/classes. If you are working in Python or writing SQL queries, stick to snake_case. For web links and CSS classes, kebab-case is universally preferred."
               }
             }
           ]
