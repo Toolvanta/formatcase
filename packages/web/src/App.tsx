@@ -7,6 +7,7 @@ import { CommandPalette } from './components/CommandPalette';
 import { SeoContent } from './components/SeoContent';
 import { Toast, ToastMessage } from './components/Toast';
 import { NotFound } from './components/NotFound';
+import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { useCaseConverter } from './hooks/useCaseConverter';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import { useTheme } from './hooks/useTheme';
@@ -115,12 +116,15 @@ export default function App() {
   };
 
   const pathname = typeof window !== 'undefined' ? window.location.pathname : '/';
-  const isKnownRoute =
-    pathname === '/' ||
-    pathname === '' ||
+  const isPrivacyRoute =
     pathname === '/privacy' ||
     pathname === '/privacy/' ||
     pathname === '/privacy.html';
+
+  const isKnownRoute =
+    pathname === '/' ||
+    pathname === '' ||
+    isPrivacyRoute;
 
   if (!isKnownRoute) {
     return (
@@ -133,6 +137,22 @@ export default function App() {
         />
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
           <NotFound />
+        </main>
+      </div>
+    );
+  }
+
+  if (isPrivacyRoute) {
+    return (
+      <div className="min-h-screen bg-slate-50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-100 flex flex-col font-sans transition-colors duration-200 selection:bg-indigo-500 selection:text-white">
+        <Header
+          theme={theme}
+          isDark={isDark}
+          onThemeToggle={toggleTheme}
+          onOpenCommandPalette={() => setIsCommandPaletteOpen(true)}
+        />
+        <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex-1 w-full">
+          <PrivacyPolicy />
         </main>
       </div>
     );
@@ -308,6 +328,14 @@ export default function App() {
                   <line x1="10.88" y1="21.94" x2="15.46" y2="14" />
                 </svg>
                 <span>Extension</span>
+              </a>
+
+              <a
+                href="/privacy"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-700 dark:text-zinc-300 hover:text-slate-900 dark:hover:text-white transition-all shadow-2xs shrink-0"
+                title="Privacy Policy"
+              >
+                <span>Privacy</span>
               </a>
 
             </div>

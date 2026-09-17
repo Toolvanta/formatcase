@@ -2,7 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Google tag (gtag.js) -->
@@ -77,6 +83,12 @@
           "@type": "WebSite",
           "@id": "https://formatcase.netlify.app/#website",
           "name": "FormatCase",
+          "alternateName": [
+            "Format Case",
+            "FormatCase App",
+            "FormatCase Online",
+            "formatcase.netlify.app"
+          ],
           "url": "https://formatcase.netlify.app/",
           "inLanguage": "en-US",
           "description": "Free, instant, 100% private in-browser case formatter and string conversion utility for developers and writers."
@@ -86,7 +98,7 @@
           "@id": "https://formatcase.netlify.app/#organization",
           "name": "FormatCase",
           "url": "https://formatcase.netlify.app/",
-          "logo": "https://formatcase.netlify.app/favicon.svg",
+          "logo": "https://formatcase.netlify.app/favicon-48x48.png",
           "sameAs": [
             "https://github.com/shoaibmarif",
             "https://www.linkedin.com/in/shoaibmarif/",
@@ -152,7 +164,103 @@
     </script>
   </head>
   <body class="bg-slate-50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-100 min-h-screen antialiased">
-    <div id="root"></div>
+    <div id="root">
+      <header style="max-width: 1280px; margin: 0 auto; padding: 24px 16px; display: flex; align-items: center; justify-content: space-between;">
+        <a href="/" style="display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 20px; text-decoration: none; color: inherit;">
+          <img src="/favicon-48x48.png" alt="FormatCase Logo" width="32" height="32" style="border-radius: 8px;" />
+          <span>FormatCase</span>
+        </a>
+        <nav style="display: flex; gap: 16px; font-size: 14px;">
+          <a href="https://chromewebstore.google.com/detail/FormatCase%20-%20Case%20Converter%20%26%20Text%20Utility/dfpjcekelcakndmpffpiemmpjbgpnipp" target="_blank" rel="noopener noreferrer" style="color: #4f46e5; font-weight: 500; text-decoration: none;">Chrome Extension</a>
+          <a href="https://github.com/shoaibmarif" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">GitHub</a>
+        </nav>
+      </header>
+
+      <main style="max-width: 1280px; margin: 0 auto; padding: 16px; font-family: 'Poppins', sans-serif;">
+        <section style="text-align: center; margin-bottom: 40px;">
+          <h1 style="font-size: 2.25rem; font-weight: 800; line-height: 1.25; margin-bottom: 12px; color: inherit;">
+            FormatCase — Online Case Converter &amp; Developer Text Utilities
+          </h1>
+          <p style="font-size: 1.125rem; max-width: 768px; margin: 0 auto; color: #64748b; line-height: 1.6;">
+            Free, instant, 100% private in-browser case formatter. Convert strings between camelCase, snake_case, kebab-case, PascalCase, Title Case, and 25+ formats with zero latency.
+          </p>
+        </section>
+
+        <section style="margin-bottom: 48px;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 20px;">Supported Casing Formats &amp; Conventions</h2>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+            <article style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; background: rgba(255,255,255,0.7);">
+              <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 6px;">camelCase</h3>
+              <p style="font-size: 0.875rem; color: #64748b; margin-bottom: 8px;"><code>helloWorld</code> • JavaScript, TypeScript, Java, Swift</p>
+              <p style="font-size: 0.875rem;">First word is lowercase, and every following word starts with a capital letter.</p>
+            </article>
+            <article style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; background: rgba(255,255,255,0.7);">
+              <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 6px;">PascalCase</h3>
+              <p style="font-size: 0.875rem; color: #64748b; margin-bottom: 8px;"><code>HelloWorld</code> • React, C#, TypeScript types</p>
+              <p style="font-size: 0.875rem;">Every single word starts with a capital letter, with no spaces in between.</p>
+            </article>
+            <article style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; background: rgba(255,255,255,0.7);">
+              <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 6px;">snake_case</h3>
+              <p style="font-size: 0.875rem; color: #64748b; margin-bottom: 8px;"><code>hello_world</code> • Python, SQL databases, Rust</p>
+              <p style="font-size: 0.875rem;">All characters are lowercase, with words joined together by underscores.</p>
+            </article>
+            <article style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; background: rgba(255,255,255,0.7);">
+              <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 6px;">kebab-case</h3>
+              <p style="font-size: 0.875rem; color: #64748b; margin-bottom: 8px;"><code>hello-world</code> • URLs, CSS classes, HTML tags</p>
+              <p style="font-size: 0.875rem;">All lowercase letters joined by hyphens. Clean and easy to read in URLs.</p>
+            </article>
+            <article style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; background: rgba(255,255,255,0.7);">
+              <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 6px;">SCREAMING_SNAKE_CASE</h3>
+              <p style="font-size: 0.875rem; color: #64748b; margin-bottom: 8px;"><code>HELLO_WORLD</code> • .env files, constants</p>
+              <p style="font-size: 0.875rem;">All uppercase letters connected with underscores for constants.</p>
+            </article>
+            <article style="border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; background: rgba(255,255,255,0.7);">
+              <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 6px;">Title Case</h3>
+              <p style="font-size: 0.875rem; color: #64748b; margin-bottom: 8px;"><code>Hello World</code> • Headlines, blog titles, articles</p>
+              <p style="font-size: 0.875rem;">Capitalizes major words like a book title, keeping minor words lowercase.</p>
+            </article>
+          </div>
+        </section>
+
+        <section style="margin-bottom: 48px;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 16px;">Core Features &amp; Capabilities</h2>
+          <ul style="line-height: 1.8; color: #475569; padding-left: 20px;">
+            <li><strong>100% Client-Side Privacy:</strong> Zero network transmission. Your text never leaves your device and runs entirely in local browser memory.</li>
+            <li><strong>25+ String Formats:</strong> Seamless conversion between camel, snake, kebab, Pascal, Train-Case, COBOL-CASE, Dot notation, and more.</li>
+            <li><strong>Smart Acronym Boundary Detection:</strong> Correctly preserves acronyms like HTTP, XML, JSON, and URL without breaking into unwanted individual letters.</li>
+            <li><strong>Batch Multi-Line Processing:</strong> Transform entire lists, SQL column dumps, or environment files line-by-line in a single click.</li>
+            <li><strong>FormatCase Chrome Extension:</strong> Highlight text on any website and convert it instantly with right-click context menus.</li>
+          </ul>
+        </section>
+
+        <section style="margin-bottom: 48px;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 16px;">Frequently Asked Questions (FAQ)</h2>
+          <div style="space-y: 16px;">
+            <div style="margin-bottom: 16px;">
+              <h3 style="font-size: 1.05rem; font-weight: 600;">Why are there so many different casing styles anyway?</h3>
+              <p style="font-size: 0.9rem; color: #64748b; margin-top: 4px;">Most programming languages and computer systems don't allow spaces in variable names, database columns, or URLs. Different communities settled on conventions: JavaScript uses camelCase, Python uses snake_case, and URLs adopt kebab-case.</p>
+            </div>
+            <div style="margin-bottom: 16px;">
+              <h3 style="font-size: 1.05rem; font-weight: 600;">What is the difference between camelCase and PascalCase?</h3>
+              <p style="font-size: 0.9rem; color: #64748b; margin-top: 4px;">With camelCase, you start with a lowercase letter (e.g., userProfile). With PascalCase, you capitalize from the very beginning (e.g., UserProfile).</p>
+            </div>
+            <div style="margin-bottom: 16px;">
+              <h3 style="font-size: 1.05rem; font-weight: 600;">Is my text private? Does anything get sent over the internet?</h3>
+              <p style="font-size: 0.9rem; color: #64748b; margin-top: 4px;">Zero. Nothing leaves your device. FormatCase runs 100% inside your web browser memory without remote servers or tracking.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer style="border-top: 1px solid #e2e8f0; padding: 32px 16px; text-align: center; font-size: 0.875rem; color: #64748b;">
+        <p>FormatCase — Created by <a href="https://github.com/shoaibmarif" target="_blank" rel="noopener noreferrer" style="color: #4f46e5; text-decoration: none; font-weight: 600;">Shoaib M. Arif</a></p>
+        <p style="margin-top: 8px;">
+          <a href="https://chromewebstore.google.com/detail/FormatCase%20-%20Case%20Converter%20%26%20Text%20Utility/dfpjcekelcakndmpffpiemmpjbgpnipp" target="_blank" rel="noopener noreferrer" style="color: #4f46e5; text-decoration: underline;">Chrome Extension</a> • 
+          <a href="https://github.com/shoaibmarif" target="_blank" rel="noopener noreferrer" style="color: #4f46e5; text-decoration: underline;">GitHub</a> • 
+          <a href="https://www.linkedin.com/in/shoaibmarif/" target="_blank" rel="noopener noreferrer" style="color: #4f46e5; text-decoration: underline;">LinkedIn</a>
+        </p>
+      </footer>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

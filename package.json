@@ -10,6 +10,7 @@
     "dev:ext": "npm run dev --workspace=@formatcase/extension",
     "build:web": "npm run build --workspace=@formatcase/web",
     "build:ext": "npm run build --workspace=@formatcase/extension",
+    "build:favicons": "node scripts/build-favicons.mjs",
     "build": "npm run build --workspaces --if-present",
     "test": "vitest run packages/core"
   },

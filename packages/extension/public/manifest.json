@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "FormatCase - Case Converter & Text Utility",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Convert selected text or workbench strings into camelCase, snake_case, PascalCase, kebab-case, and 25+ formats instantly.",
   "homepage_url": "https://formatcase.netlify.app/",
   "action": {
