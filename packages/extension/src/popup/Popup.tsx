@@ -65,7 +65,7 @@ export const Popup: React.FC = () => {
             <div className="flex items-center gap-2">
               <span className="font-bold text-sm tracking-tight text-white">FormatCase</span>
               <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
-                v1.0.1
+                v1.0.2
               </span>
             </div>
             <p className="text-[11px] text-slate-400 leading-tight">Instant Case Converter</p>
@@ -153,11 +153,10 @@ export const Popup: React.FC = () => {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`text-[11px] px-2.5 py-1 rounded-md capitalize transition font-medium ${
-                  activeCategory === cat
+                className={`text-[11px] px-2.5 py-1 rounded-md capitalize transition font-medium ${activeCategory === cat
                     ? 'bg-indigo-600 text-white shadow-xs'
                     : 'text-slate-400 hover:text-slate-200'
-                }`}
+                  }`}
               >
                 {cat}
               </button>
@@ -181,11 +180,10 @@ export const Popup: React.FC = () => {
               <div
                 key={fmt.id}
                 onClick={() => handleCopy(fmt.id, formattedValue)}
-                className={`group flex items-center justify-between p-3 rounded-xl border transition-all cursor-pointer ${
-                  isCopied
+                className={`group flex items-center justify-between p-3 rounded-xl border transition-all cursor-pointer ${isCopied
                     ? 'bg-emerald-950/40 border-emerald-500/60 shadow-sm'
                     : 'bg-slate-950/70 hover:bg-slate-800/80 border-slate-800/80 hover:border-slate-700'
-                }`}
+                  }`}
               >
                 <div className="flex flex-col min-w-0 pr-3">
                   <div className="flex items-center gap-2 mb-0.5">
@@ -197,9 +195,8 @@ export const Popup: React.FC = () => {
                     </span>
                   </div>
                   <span
-                    className={`font-mono text-xs truncate transition ${
-                      input ? 'text-slate-100' : 'text-slate-500 italic'
-                    }`}
+                    className={`font-mono text-xs truncate transition ${input ? 'text-slate-100' : 'text-slate-500 italic'
+                      }`}
                   >
                     {formattedValue || '—'}
                   </span>
@@ -208,11 +205,10 @@ export const Popup: React.FC = () => {
                 <button
                   type="button"
                   title="Copy result"
-                  className={`shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition ${
-                    isCopied
+                  className={`shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition ${isCopied
                       ? 'bg-emerald-500 text-white'
                       : 'bg-slate-800 text-slate-300 group-hover:text-white group-hover:bg-indigo-600'
-                  }`}
+                    }`}
                 >
                   {isCopied ? (
                     <>
