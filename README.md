@@ -189,18 +189,17 @@ formatcase/
 │   │   ├── package.json             # @formatcase/core
 │   │   └── tsconfig.json
 │   │
-│   ├── web/                         # React 19 + Tailwind v4 Web Application
-│   │   ├── public/                  # Favicons, sitemap, robots.txt
+│   ├── web/                         # Next.js App Router Web Application
+│   │   ├── public/                  # Favicons, icons, manifest
 │   │   ├── src/
-│   │   │   ├── components/          # Header, Workbench, PreviewGrid, CommandPalette, etc.
+│   │   │   ├── app/                 # Next.js App Router (layout, page, privacy, not-found, sitemap, robots)
+│   │   │   ├── components/          # Header, Workbench, PreviewGrid, CommandPalette, Footer, etc.
 │   │   │   ├── hooks/               # useCaseConverter, useLocalStorage, useTheme
-│   │   │   ├── styles/              # app.css (Tailwind v4)
-│   │   │   ├── App.tsx
-│   │   │   └── main.tsx
-│   │   ├── index.html
-│   │   ├── package.json             # @formatcase/web
-│   │   ├── tsconfig.json
-│   │   └── vite.config.ts
+│   │   │   └── styles/              # app.css (Tailwind v4)
+│   │   ├── package.json             # @formatcase/web (Next.js)
+│   │   ├── next.config.mjs          # Next.js configuration (static export)
+│   │   ├── postcss.config.mjs       # Tailwind CSS v4 PostCSS config
+│   │   └── tsconfig.json
 │   │
 │   └── extension/                   # Chrome Extension (Manifest V3)
 │       ├── public/
@@ -244,9 +243,9 @@ npm run build
 npm run dev
 
 # Or run workspace-specific commands
-npm run dev:web       # Start web app dev server (http://localhost:5173)
+npm run dev:web       # Start Next.js web app dev server (http://localhost:3000)
 npm run dev:ext       # Watch mode build for Chrome extension
-npm run build:web     # Build web app into packages/web/dist
+npm run build:web     # Build Next.js web app into packages/web/out
 npm run build:ext     # Build extension into packages/extension/dist
 ```
 

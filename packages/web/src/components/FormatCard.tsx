@@ -1,7 +1,11 @@
+'use client';
+
 import React, { useState } from 'react';
-import { Copy, Check, Star, ArrowUpRight } from 'lucide-react';
+import Link from 'next/link';
+import { Copy, Check, Star, ArrowUpRight, ExternalLink } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { FormatDefinition } from '../utils/formatters';
+import { getToolById } from '../utils/toolRegistry';
 
 interface FormatCardProps {
   format: FormatDefinition;
@@ -21,6 +25,7 @@ export const FormatCard: React.FC<FormatCardProps> = ({
   onNotifyCopy,
 }) => {
   const [copied, setCopied] = useState(false);
+  const toolDef = getToolById(format.id);
 
   const handleCopy = (e: React.MouseEvent) => {
     if (!output) return;
@@ -71,9 +76,21 @@ export const FormatCard: React.FC<FormatCardProps> = ({
         {/* Header: Name, Category, Pin */}
         <div className="flex items-center justify-between gap-2 mb-2">
           <div className="flex items-center gap-2.5 overflow-hidden">
-            <h3 className="font-mono text-sm font-bold text-slate-800 dark:text-zinc-100 truncate">
-              {format.name}
-            </h3>
+            {toolDef ? (
+              <h3 className="font-mono text-sm font-bold text-slate-800 dark:text-zinc-100 truncate">
+                <Link
+                  href={`/tools/${toolDef.slug}`}
+                  className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                  title={`View ${format.name} guide, rules, and dedicated converter`}
+                >
+                  {format.name}
+                </Link>
+              </h3>
+            ) : (
+              <h3 className="font-mono text-sm font-bold text-slate-800 dark:text-zinc-100 truncate">
+                {format.name}
+              </h3>
+            )}
             <span
               className={`text-[10px] uppercase font-semibold px-2.5 py-0.5 rounded-md border ${getCategoryColor(
                 format.category
@@ -86,7 +103,7 @@ export const FormatCard: React.FC<FormatCardProps> = ({
           <button
             type="button"
             onClick={() => onToggleFavorite(format.id)}
-            className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
+            className={`p-2 rounded-lg transition-colors cursor-pointer min-h-[36px] min-w-[36px] flex items-center justify-center ${
               isFavorite
                 ? 'text-amber-500 hover:text-amber-600'
                 : 'text-slate-300 dark:text-zinc-600 hover:text-amber-400'
@@ -121,7 +138,7 @@ export const FormatCard: React.FC<FormatCardProps> = ({
           type="button"
           onClick={handleCopy}
           disabled={!output}
-          className={`flex-1 py-2 px-3.5 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer ${
+          className={`flex-1 min-h-[44px] py-2 px-3.5 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer ${
             copied
               ? 'bg-emerald-600 text-white shadow-xs'
               : 'bg-indigo-50 dark:bg-zinc-800 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-600 text-indigo-700 dark:text-zinc-200 disabled:opacity-40 disabled:hover:bg-indigo-50 disabled:hover:text-indigo-700 disabled:cursor-not-allowed'
@@ -135,12 +152,23 @@ export const FormatCard: React.FC<FormatCardProps> = ({
           type="button"
           onClick={() => onReplaceInput(output, format.name)}
           disabled={!output}
-          className="p-2 rounded-xl border border-slate-200 dark:border-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100 transition-colors disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+          className="min-h-[44px] min-w-[44px] p-2 rounded-xl border border-slate-200 dark:border-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100 transition-colors disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center"
           title="Use this as the new input text"
           aria-label="Use as input text"
         >
           <ArrowUpRight className="w-4 h-4" />
         </button>
+
+        {toolDef && (
+          <Link
+            href={`/tools/${toolDef.slug}`}
+            className="min-h-[44px] min-w-[44px] p-2 rounded-xl border border-slate-200 dark:border-zinc-800 hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-500 dark:text-zinc-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors flex items-center justify-center"
+            title={`Open ${format.name} guide & dedicated page`}
+            aria-label={`Open ${format.name} full tool page`}
+          >
+            <ExternalLink className="w-3.5 h-3.5" />
+          </Link>
+        )}
       </div>
     </div>
   );

@@ -1,29 +1,10 @@
-import React, { useEffect } from 'react';
+'use client';
+
+import React from 'react';
+import Link from 'next/link';
 import { ArrowLeft, Home, HelpCircle } from 'lucide-react';
 
 export const NotFound: React.FC = () => {
-  useEffect(() => {
-    document.title = '404 - Page Not Found | FormatCase';
-
-    // Add or update noindex robots tag for 404
-    let robotsMeta = document.querySelector('meta[name="robots"]') as HTMLMetaElement | null;
-    const previousRobots = robotsMeta ? robotsMeta.content : 'index, follow';
-
-    if (!robotsMeta) {
-      robotsMeta = document.createElement('meta');
-      robotsMeta.name = 'robots';
-      document.head.appendChild(robotsMeta);
-    }
-    robotsMeta.content = 'noindex, nofollow';
-
-    return () => {
-      document.title = 'FormatCase | camelCase, snake_case, PascalCase, kebab-case Online Formatter';
-      if (robotsMeta) {
-        robotsMeta.content = previousRobots;
-      }
-    };
-  }, []);
-
   return (
     <div className="min-h-[70vh] flex items-center justify-center px-4 py-16">
       <div className="max-w-lg w-full text-center space-y-6">
@@ -39,22 +20,22 @@ export const NotFound: React.FC = () => {
             Page Not Found
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 dark:text-zinc-400 max-w-md mx-auto leading-relaxed">
-            The page or route you are looking for doesn't exist or has been moved. If you were looking to format text, jump straight to the FormatCase workbench.
+            The page or route you are looking for doesn&apos;t exist or has been moved. If you were looking to format text, jump straight to the FormatCase workbench.
           </p>
         </div>
 
         <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-          <a
+          <Link
             href="/"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold shadow-sm transition-all"
           >
             <Home className="w-4 h-4" />
             <span>Go to Home</span>
-          </a>
+          </Link>
           <button
             type="button"
             onClick={() => window.history.back()}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-700 dark:text-zinc-300 text-xs font-medium transition-all"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-700 dark:text-zinc-300 text-xs font-medium transition-all cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Go Back</span>

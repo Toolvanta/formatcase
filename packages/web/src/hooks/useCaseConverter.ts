@@ -1,3 +1,5 @@
+'use client';
+
 import { useDeferredValue, useMemo } from 'react';
 
 export function useCaseConverter(input: string, batchMode: boolean) {
@@ -24,4 +26,3 @@ export function useCaseConverter(input: string, batchMode: boolean) {
     isStale: input !== deferredInput,
   };
 }
-

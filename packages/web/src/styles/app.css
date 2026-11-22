@@ -3,18 +3,19 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: var(--font-poppins), 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
 }
 
 :root {
-  color-scheme: light;
+  color-scheme: light dark;
   --bg-primary: #f8fafc;
   --bg-surface: #ffffff;
   --border-subtle: #e2e8f0;
   --text-primary: #0f172a;
   --text-muted: #64748b;
   --accent-primary: #4f46e5;
+  scrollbar-color: rgba(156, 163, 175, 0.4) transparent;
 }
 
 .dark {
@@ -25,6 +26,7 @@
   --text-primary: #f4f4f5;
   --text-muted: #a1a1aa;
   --accent-primary: #6366f1;
+  scrollbar-color: rgba(156, 163, 175, 0.4) transparent;
 }
 
 html {
@@ -56,4 +58,3 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(156, 163, 175, 0.7);
 }
-

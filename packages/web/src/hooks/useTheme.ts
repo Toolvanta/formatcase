@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect } from 'react';
 import { useLocalStorage } from './useLocalStorage';
 
@@ -5,20 +7,11 @@ export type ThemeMode = 'light' | 'dark' | 'system';
 
 export function useTheme() {
   const [theme, setTheme] = useLocalStorage<ThemeMode>('omnicase_theme', 'system');
-  const [isDark, setIsDark] = useState<boolean>(() => {
-    if (typeof window === 'undefined') return false;
-    try {
-      const stored = window.localStorage.getItem('omnicase_theme');
-      const parsed = stored ? JSON.parse(stored) : 'system';
-      if (parsed === 'dark') return true;
-      if (parsed === 'light') return false;
-      return window.matchMedia('(prefers-color-scheme: dark)').matches;
-    } catch {
-      return false;
-    }
-  });
+  const [isDark, setIsDark] = useState<boolean>(false);
+  const [mounted, setMounted] = useState<boolean>(false);
 
   useEffect(() => {
+    setMounted(true);
     const root = document.documentElement;
 
     const applyTheme = () => {
@@ -48,6 +41,5 @@ export function useTheme() {
     setTheme(nextTheme);
   };
 
-  return { theme, isDark, setTheme, toggleTheme };
+  return { theme, isDark, setTheme, toggleTheme, mounted };
 }
-

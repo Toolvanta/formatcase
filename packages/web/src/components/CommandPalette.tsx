@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect, useRef } from 'react';
 import { Search, X, Copy, CornerDownLeft } from 'lucide-react';
 import { FORMAT_DEFINITIONS } from '../utils/formatters';

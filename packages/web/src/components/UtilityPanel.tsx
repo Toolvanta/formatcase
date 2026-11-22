@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { Sliders, PlusCircle, Eraser, ChevronDown } from 'lucide-react';
 import { applyPrefixSuffix, cleanText, CleanerOptions } from '../utils/textUtils';

@@ -1,5 +1,8 @@
+'use client';
+
 import React, { useState, useMemo } from 'react';
-import { Search, Filter, Star, Sparkles } from 'lucide-react';
+import Link from 'next/link';
+import { Search, Filter, Star, Sparkles, ArrowRight } from 'lucide-react';
 import { FORMAT_DEFINITIONS } from '../utils/formatters';
 import { FormatCard } from './FormatCard';
 
@@ -197,6 +200,25 @@ export const PreviewGrid: React.FC<PreviewGridProps> = ({
           ))}
         </div>
       )}
+
+      {/* Directory & Deep Guide Callout */}
+      <div className="rounded-2xl border border-slate-200/90 dark:border-zinc-800/90 bg-gradient-to-r from-slate-50 via-white to-indigo-50/40 dark:from-zinc-900/60 dark:via-zinc-900 dark:to-indigo-950/20 p-4 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-zinc-100">
+            Looking for standalone tools, rules, and code snippets?
+          </h3>
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-zinc-400 mt-0.5">
+            Explore our comprehensive index of all 29 casing tools with language-specific rules, implementation guides, and FAQs.
+          </p>
+        </div>
+        <Link
+          href="/tools"
+          className="shrink-0 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs sm:text-sm font-semibold transition-all shadow-xs"
+        >
+          <span>Explore All 29 Tools</span>
+          <ArrowRight className="w-4 h-4" />
+        </Link>
+      </div>
     </section>
   );
 };
